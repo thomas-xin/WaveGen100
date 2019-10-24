@@ -950,8 +950,8 @@ def redo():
     except:
         pass
 def settings():
-    global volume,mode,transform_length,detune,instr,data,unison
-    ins_count = int(len(data)*transform_length)
+    global volume,mode,transform_length,detune,instr,data,unison,sampleLength
+    ins_count = int(len(data)*transform_length)/sampleLength-1
     inputvar = multenterbox("Settings",["Volume","Render Mode","Interval Length","Instrument Detune","Lower Instrument","Lower Pitch","Upper Instrument","Upper Pitch","Unison Order"],
                             [volume,mode,transform_length*256,detune,round(instr[0][0]),instr[0][1],round(instr[1][0]),instr[1][1],unison],
                             [[0,1],((0,2),('Bars','Lines','Bars+Lines')),(1,256),[0,1],(-1,ins_count),[-24,24],(-1,ins_count),[-24,24],(1,8)])
